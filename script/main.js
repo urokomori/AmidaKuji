@@ -56,22 +56,21 @@ function drawHorizontalLines(columnN, rowN, lineWidth){
     var context = canvas.getContext('2d');
   }
 
-
+  var offSet = 30;
   var columnDiff = Math.floor(($('#amidakuji-canvas').width() - lineWidth)/(columnN - 1));
-  var rowDiff = Math.floor(($('#amidakuji-canvas').height() - lineWidth)/(rowN - 1));
+  var rowDiff = Math.floor(($('#amidakuji-canvas').height() - lineWidth - offSet * 2)/(rowN - 1));
 
   for(var i = 0; i < columnN - 1; i++){
     for(var j = 0; j < rowN; j++){
       drawHorizontalLine(Math.floor(lineWidth / 2) + columnDiff * i, 
                          Math.floor(lineWidth / 2) + columnDiff * (i + 1), 
-                         Math.floor(lineWidth / 2) + rowDiff * j, 
+                         Math.floor(lineWidth / 2) + rowDiff * j + offSet, 
                          lineWidth);
     }
   }
 }
 
 function addLotButton(width, height) {
-    alert(width + ":"+ height);
     var amidakuji = document.getElementById('button-area');
     var id = 'rotButton' + (amidakuji.getElementsByTagName('input').length).toString();
 
