@@ -80,5 +80,11 @@ function addLotButton(width, height) {
             .attr('type', 'button')
     );
 
+    var button = document.getElementById('amidakuji-canvas');
+
+    $('#'+id).click(function(){
+      alert(id);
+    })
+
     return;
 }
