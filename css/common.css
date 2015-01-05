@@ -29,11 +29,17 @@ a:hover{
 	opacity:0.7;
 }
 
+#button-area{
+	width:600px;
+}
+
 #amidakuji-canvas{
+	width:600px;
 }
 
 #blindfold-canvas{
-	margin-top:-600;
+	width:600px;
+	margin-top:-200px;
 }
 
 input{
@@ -41,7 +47,7 @@ input{
 	height:50px;
 	border-radius:50%;
 	background-color:#F26964;
-	margin-right:110px;
+	margin-right:50px;
 	border:none;
 	-webkit-transition:all 1s;
 	-moz-transition:all 1s;

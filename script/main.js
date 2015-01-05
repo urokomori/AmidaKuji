@@ -1,6 +1,18 @@
 function draw(){
   drawVerticalLines(5, 15);
   drawHorizontalLines(5, 10, 15);
+  drawBlindfold();
+}
+
+function drawBlindfold(){
+ var canvas = document.getElementById('blindfold-canvas');
+  if (canvas.getContext){
+    var context = canvas.getContext('2d');
+  }
+
+  context.fillStyle = '#333333';
+  context.fillRect(0,0,800,200);
+  context.stroke();
 }
 
 function drawVerticalLine(x, lineWidth){
@@ -13,8 +25,8 @@ function drawVerticalLine(x, lineWidth){
   context.lineWidth = lineWidth;
 
   context.beginPath();
-  context.moveTo(x,0);
-  context.lineTo(x,$('#amidakuji-canvas').height());
+  context.moveTo(x, 0);
+  context.lineTo(x, $('#amidakuji-canvas').height());
   context.stroke();
 }
 
@@ -41,7 +53,7 @@ function drawVerticalLines(n, lineWidth){
     var context = canvas.getContext('2d');
   }
 
-  var diff = Math.floor(($('#amidakuji-canvas').width() - lineWidth)/(n - 1));
+  var diff = Math.floor( $('#amidakuji-canvas').width() /(n-1));
 
   for(var i = 0; i < n; i++){
     drawVerticalLine(Math.floor(lineWidth / 2) +  diff * i, lineWidth);
@@ -57,7 +69,7 @@ function drawHorizontalLines(columnN, rowN, lineWidth){
   }
 
   var offSet = 30;
-  var columnDiff = Math.floor(($('#amidakuji-canvas').width() - lineWidth)/(columnN - 1));
+  var columnDiff = Math.floor($('#amidakuji-canvas').width()/(columnN - 1));
   var rowDiff = Math.floor(($('#amidakuji-canvas').height() - lineWidth - offSet * 2)/(rowN - 1));
 
   for(var i = 0; i < columnN - 1; i++){
@@ -83,7 +95,15 @@ function addLotButton(width, height) {
     var button = document.getElementById('amidakuji-canvas');
 
     $('#'+id).click(function(){
-      alert(id);
+
+     var canvas = document.getElementById('blindfold-canvas');
+     if (canvas.getContext){
+      var context = canvas.getContext('2d');
+     }
+
+    context.clearRect(0,0,800,200);
+    context.stroke();
+      
     })
 
     return;
